@@ -6005,16 +6005,30 @@ img.wp-post-image {
 #logo-container {
   height: auto;
   width: 100%;
-  margin-left: -90px;
+  margin-left: -148px;
   position:relative;
   width: 100%;
   left: 50%;
+  margin-bottom: 20px;
+}
+
+#logo-container img {
+  width: 225px;
 }
 
 
+#menu ul li {
+  min-width: 20%;
+}
 
+.signin_cart_links {
+  float: right;
+  z-index:10;
+}
 
-
+#navigation-container {
+  float: none;
+}
 
 
 
