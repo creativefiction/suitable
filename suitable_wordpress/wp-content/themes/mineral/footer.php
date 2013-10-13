@@ -34,8 +34,9 @@
 
 //PRINT THE FOOTER COLUMNS
 $footer_layout = pexeto_option("footer_layout");
-$sidebar_numbers = array("one", "two", "three", "four");
-$column_num = intval($footer_layout);
+$sidebar_numbers = array("one", "two", "three", "four", "five");
+//$column_num = intval($footer_layout); // Original theme setting
+$column_num = 5;
 if($footer_layout!="no-footer"){ ?>
 	<div class="cols-wrapper footer-widgets section-boxed cols-<?php echo $column_num; ?>">
 	<?php

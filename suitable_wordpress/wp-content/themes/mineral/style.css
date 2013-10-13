@@ -6010,6 +6010,7 @@ img.wp-post-image {
   width: 100%;
   left: 50%;
   margin-bottom: 20px;
+  margin-top:20px;
 }
 
 #logo-container img {
@@ -6030,7 +6031,14 @@ img.wp-post-image {
   float: none;
 }
 
+.home_link_title {
+  font-family: Montserrat;
+  font-weight: bold;
+}
 
+.home_link_caption {
+  text-align: center;
+}
 
 
 

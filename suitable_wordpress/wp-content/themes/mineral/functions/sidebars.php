@@ -46,10 +46,11 @@ if ( !function_exists( 'pexeto_load_sidebar_names' ) ) {
 				);
 			}
 
-			$sidebar_numbers = array( 'one', 'two', 'three', 'four' );
+			$sidebar_numbers = array( 'one', 'two', 'three', 'four', 'five' );
 
 			//add the footer sidebars
-			$footer_layout = pexeto_option( 'footer_layout' );
+			//$footer_layout = pexeto_option( 'footer_layout' );
+			$footer_layout = 5;
 			if ( $footer_layout!='no-footer' ) {
 				$column_num = intval( $footer_layout );
 				if ( $column_num>0 ) {
