@@ -39,12 +39,32 @@
       
       <h2 class="title">{{ product.title }}</h2>
       <h3 class="product_price">{{ product.price_min | money }}</h3>
+
+      <dl class="accordion">
+        <dt><a class="product_description_title active" href="">Style Notes<span class="open_close_arrow open_rotate"><</span></a>
+        </dt>
+        <dd class="product_description_container">{{ product.description }}</dd>
+
+        <dt><a class="product_description_title" href="">Details & Care<span class="open_close_arrow close_rotate"><</span></a>
+        </dt>
+        <dd class="product_description_container">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</dd>
+
+        <dt><a class="product_description_title" href="">Alterations Credit<span class="open_close_arrow close_rotate"><</span></a>
+        </dt>
+        <dd class="product_description_container">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
+
+        <dt><a class="product_description_title_last" href="">How to Get Measured<span class="open_close_arrow close_rotate"><</span></a>
+        </dt>
+        <dd class="product_description_container">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
+      </dl>
       
+      <!-- comment out existing product description because it's not being used.
       {% if settings.product_description_position == "top" %}
       <div class="description">
         {{ product.description }}
       </div>
       <div class="details"><span class="type">type: {{ product.type | link_to_type }}</span> <span class="vendor">vendor: {{ product.vendor | link_to_vendor }}</span></div>
+      -->
       <div class="social">
         {% include 'like' %}
       </div>

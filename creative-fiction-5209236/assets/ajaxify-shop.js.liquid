@@ -186,5 +186,40 @@ Shopify.onCartUpdate = function(cart, form) {
     }
 };
 
+//Adding in some custom js
+
+(function(jQ) {
+    
+  var allPanels = $('.accordion > dd').hide();
+
+  $('.active').parent().next().show();
+    
+  $('.accordion > dt > a').click(function() {
+      $this = $(this);
+      $target =  $this.parent().next();
+      console.log(this);
+
+      if(!$target.hasClass('active')){
+         allPanels.removeClass('active').slideUp();
+         $(".open_close_arrow").attr('class','open_close_arrow close_rotate')
+         $target.addClass('active').slideDown();
+         $this.find(".open_close_arrow").addClass('open_rotate');
+      }
+      
+    return false;
+  });
+
+})(jQ);
+
+
+
+
+
+
+
+
+
+
+
 //End Wrapper    
 });
