@@ -1,3 +1,5 @@
+/* adding fonts */
+
 textarea, input[type=text], input[type=phone], input[type=password], input[type=email] {line-height:22px; color:#666;}
 input[type=text], input[type=phone], input[type=password], input[type=email] {height:22px;}
 
@@ -37,8 +39,8 @@ table tr td:last-child {padding-right:0px;}
 input, a {outline:none !important;}
 input:hover, a:hover {outline:none !important;}
 input:active, a:active {outline:none !important;}
-input[type=submit], button, a.btn {border:none; outline:none; padding:10px 25px; color:#fff; background:{{ settings.btn_color }}; font-size:12px; font-style:italic; text-transform:lowercase; font-family:"Georgia", serif;}
-input[type=submit]:hover, button:hover, a.btn:hover {background:{{ settings.btn_hover_color }}}
+input[type=submit], button, a.btn {border:none; outline:none; padding:10px 25px; color:black; background:white; font-size:12px; text-transform:uppercase;font-weight:bold;border:1px solid black;}
+input[type=submit]:hover, button:hover, a.btn:hover {background:rgb(168,26,48);color:white;border:1px solid rgb(168,26,48);}
 
 header {padding:20px 0; position:relative;}
 header h1 {margin:0;}
@@ -197,12 +199,12 @@ footer #footer-payment-methods {float:right;}
 #product .product_body {margin-bottom:35px;}
 #product .details {padding:13px 0; font-size:12px; font-family:"Georgia", serif; font-style:italic; text-transform:lowercase;}
 #product .variants span.price {display:block; font-size:15px; padding:13px 0;}
-#product .variants label {display:block; font-size:11px; text-transform:uppercase;}
+#product .variants label {display:block; font-size:13px; text-transform:uppercase;display:inline;}
 #product .variants select {display:block;}
 #product .variants .select {padding:10px; margin:16px 0 0 0; background:#FCFCFC;}
 #product .price {float:left; margin:16px 0; padding:10px 0; color:{{ settings.header_color }}; font-size:16px; }
 #product .price span {color:{{ settings.text_color }}; font-size:14px; }
-#product .purchase {float:right; margin:16px 0;}
+#product .purchase {float:left; margin:16px 0;}
 
 #product .type, #product .vendor {margin-right:8px;}
 
@@ -371,7 +373,6 @@ text-decoration: none;
 
 /* Internet Explorer */
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-
 }
 
 .open_rotate {
@@ -390,29 +391,72 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 /* Internet Explorer */
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
 
+.product_form {
+	position:absolute;
+	left:310px;
+	top:840px;
+}
+
+.product_margin {
+	margin-bottom: 390px;
+}
+
+.left_measurements {
+	float:left;
+	width: 194px;
+}
+
+.right_measurements {
+	float:right;
+	width: 194px;
+}
+
+.step1, .step2, .step3 {
+	float:left;
+}
+
+.step1 {
+	width: 276px
+}
+
+.step2 {
+	width: 402px;
+	margin-left: 20px;
+}
+
+.step3 {
+	margin-left: 40px;
+	width:235px;
+}
+
+input[type=text].measurement_input { /* had to add additional selectors due to specificity */
+	border:1px solid black;
+	border-radius:0;
+	margin-right:5px;
+	margin-bottom:10px;
+	width:50px;
+}
+
+.step1 p, .step2 p, .step3 p {
+	font-size: 18px;
+	margin-bottom: 15px;
 }
 
 
+.add_to_bag {
+	border: 1px solid hsl(0, 0%, 0%);
+	background: hsl(0, 100%, 100%);
+	color: hsl(0, 0%, 0%);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-style: normal;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.clear {
+	clear: both;
+}
 
 
 

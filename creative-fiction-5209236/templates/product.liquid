@@ -1,5 +1,5 @@
 {% assign shappify_options_loaded = "0" %}
-<div id="product" class="{{ product.handle }}{% if product.images.size == 1 %} one_image{% endif %} clearfix">
+<div id="product" class="{{ product.handle }}{% if product.images.size == 1 %} one_image{% endif %} clearfix product_margin">
   
   <div class="product_body clearfix">
     <div class="images">
@@ -70,14 +70,14 @@
       </div>
       {% endif %}
       
-      <form id="add-item-form" action="/cart/add" method="post" class="shappify_add_to_cart_form" class="variants clearfix" enctype="multipart/form-data">
-        {% if product.options.size > 1 %}
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix product_form" class="shappify_add_to_cart_form" enctype="multipart/form-data">
+        <!-- {% if product.options.size > 1 %}
         <div class="select clearfix">
           <select id="product-select" name='id'>
             {% for variant in product.variants %}
             <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
             {% endfor %}
-          </select>
+          </select> 
 
         </div>
         {% elsif product.options.size == 1 and product.variants.size > 1 %}
@@ -106,16 +106,56 @@
 
         
         {% if product.available %} 
-        <br/>
-        <div class="purchase clearfix">
-          
-          <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="Add to Cart" class="cart cufon" /></span>
+        <br/>-->
+        <div class="steps_container">
+          <div class="step1">
+            <h3>Step 1</h3>
+            <p>What are these measurements based on?</p>
+            <input type="radio" name"body_measurements" value="body_measurements"> Based on body measurements<br>
+            <input type="radio" name"suit_measurements" value="suit_measurements"> Based on another suite I have
+          </div>
+
+          <div class="step2">
+            <h3>Step 2</h3>
+            <p>Please enter your measurements in centimeters. If you have questions, email care@suitablenyc.com.</p>
+            <div class="measurements_container">
+              <div class="left_measurements">
+                <input class="measurement_input" type="text" name"jacket_length"><label>Jacket Length</label>
+                <input class="measurement_input" type="text" name"shoulder_width"><label>Shoulder Width</label>
+                <input class="measurement_input" type="text" name"neck_size"><label>Neck Size</label>
+                <input class="measurement_input" type="text" name"chest_size"><label>Chest Size</label>
+                <input class="measurement_input" type="text" name"bicep_size"><label>Bicep Size</label>
+                <input class="measurement_input" type="text" name"wrist_size"><label>Wrist Size</label>
+                <input class="measurement_input" type="text" name"sleeve_length"><label>Sleeve Length</label>
+              </div>
+              <div class="right_measurements">
+                <input class="measurement_input" type="text" name"waist_size"><label>Waist Length</label>
+                <input class="measurement_input" type="text" name"stomach_size"><label>Stomach Size</label>
+                <input class="measurement_input" type="text" name"hip_size"><label>Hip Size</label>
+                <input class="measurement_input" type="text" name"torso_length"><label>Torso Length</label>
+                <input class="measurement_input" type="text" name"inseam_length"><label>Inseam Size</label>
+                <input class="measurement_input" type="text" name"thigh_size"><label>Thigh Size</label>
+                <input class="measurement_input" type="text" name"pant_length"><label>Pant Length</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="step3">
+            <h3>Step 3</h3>
+            <p>You're measured up. Let's get your suit on the road.</p>
+            <div class="purchase clearfix">
+              <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="ADD TO BAG" class="cart cufon add_to_bag" /></span>
+            </div>
+            {% else %}
+            <div class="purchase clearfix">
+              <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
+            </div>
+            {% endif %}
+          <div class="clear">Product Code:</div>
+          </div>
+
+
         </div>
-        {% else %}
-        <div class="purchase clearfix">
-          <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="Sold Out" class="cart cufon disabled" disabled="disabled" /></span>
-        </div>
-        {% endif %}
         
       </form>
       
@@ -128,6 +168,7 @@
         {% include 'like' %}
       </div>
       {% endif %}
+
       
     </div>
   </div> <!-- /.product_body -->
