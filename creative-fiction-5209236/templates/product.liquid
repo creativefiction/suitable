@@ -58,20 +58,12 @@
         <dd class="product_description_container">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
       </dl>
       
-      <!-- comment out existing product description because it's not being used.
-      {% if settings.product_description_position == "top" %}
-      <div class="description">
-        {{ product.description }}
-      </div>
-      <div class="details"><span class="type">type: {{ product.type | link_to_type }}</span> <span class="vendor">vendor: {{ product.vendor | link_to_vendor }}</span></div>
-      -->
       <div class="social">
         {% include 'like' %}
       </div>
-      {% endif %}
       
-      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix product_form" class="shappify_add_to_cart_form" enctype="multipart/form-data">
-        <!-- {% if product.options.size > 1 %}
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix product_form" enctype="multipart/form-data">
+        {% if product.options.size > 1 %}
         <div class="select clearfix">
           <select id="product-select" name='id'>
             {% for variant in product.variants %}
@@ -91,22 +83,10 @@
         </div>
         {% else %}
         <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-        {% endif %}
-        
-        
-                        {% include 'shappify-options' %}
-
-        
-        {% if product.price_min < product.compare_at_price_min %}
-        <p class="price" id="price-preview">{{ product.price_min | money }} <span>was {{ product.compare_at_price_min | money }}</span></p>
-        {% else %}
-        <p class="price" id="price-preview">{{ product.price_min | money }}</p>
-        {% endif %}
-        
-
+        {% endif %}        
         
         {% if product.available %} 
-        <br/>-->
+        <br/>
         <div class="steps_container">
           <div class="step1">
             <h3>Step 1</h3>
@@ -120,22 +100,22 @@
             <p>Please enter your measurements in centimeters. If you have questions, email care@suitablenyc.com.</p>
             <div class="measurements_container">
               <div class="left_measurements">
-                <input class="measurement_input" type="text" name"jacket_length"><label>Jacket Length</label>
-                <input class="measurement_input" type="text" name"shoulder_width"><label>Shoulder Width</label>
-                <input class="measurement_input" type="text" name"neck_size"><label>Neck Size</label>
-                <input class="measurement_input" type="text" name"chest_size"><label>Chest Size</label>
-                <input class="measurement_input" type="text" name"bicep_size"><label>Bicep Size</label>
-                <input class="measurement_input" type="text" name"wrist_size"><label>Wrist Size</label>
-                <input class="measurement_input" type="text" name"sleeve_length"><label>Sleeve Length</label>
+                <input class="measurement_input" type="text" id="jacketlength" name="properties[jacket_length]"><label>Jacket Length</label>
+                <input class="measurement_input" type="text" id="shoulder_width" name="properties[shoulder_width]"><label>Shoulder Width</label>
+                <input class="measurement_input" type="text" id="neck_size" name="properties[neck_size]"><label>Neck Size</label>
+                <input class="measurement_input" type="text" id="chest_size" name="properties[chest_size]"><label>Chest Size</label>
+                <input class="measurement_input" type="text" id="bicep_size" name="properties[bicep_size]"><label>Bicep Size</label>
+                <input class="measurement_input" type="text" id="wrist_size" name="properties[wrist_size]"><label>Wrist Size</label>
+                <input class="measurement_input" type="text" id="sleeve_length" name="properties[sleeve_length]"><label>Sleeve Length</label>
               </div>
               <div class="right_measurements">
-                <input class="measurement_input" type="text" name"waist_size"><label>Waist Length</label>
-                <input class="measurement_input" type="text" name"stomach_size"><label>Stomach Size</label>
-                <input class="measurement_input" type="text" name"hip_size"><label>Hip Size</label>
-                <input class="measurement_input" type="text" name"torso_length"><label>Torso Length</label>
-                <input class="measurement_input" type="text" name"inseam_length"><label>Inseam Size</label>
-                <input class="measurement_input" type="text" name"thigh_size"><label>Thigh Size</label>
-                <input class="measurement_input" type="text" name"pant_length"><label>Pant Length</label>
+                <input class="measurement_input" type="text" id="waist_size" name="properties[waist_size]"><label>Waist Length</label>
+                <input class="measurement_input" type="text" id="stomach_size" name="properties[stomach_size]"><label>Stomach Size</label>
+                <input class="measurement_input" type="text" id="hip_size" name="properties[hip_size]"><label>Hip Size</label>
+                <input class="measurement_input" type="text" id="torso_length" name="properties[torso_length]"><label>Torso Length</label>
+                <input class="measurement_input" type="text" id="inseam_length" name="properties[inseam_length]"><label>Inseam Size</label>
+                <input class="measurement_input" type="text" id="thigh_size" name="properties[thigh_size]"><label>Thigh Size</label>
+                <input class="measurement_input" type="text" id="pant_length" name="properties[pant_length]"><label>Pant Length</label>
               </div>
             </div>
           </div>
@@ -144,11 +124,11 @@
             <h3>Step 3</h3>
             <p>You're measured up. Let's get your suit on the road.</p>
             <div class="purchase clearfix">
-              <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="ADD TO BAG" class="cart cufon add_to_bag" /></span>
+              <span><input type="submit" name="add" value="ADD TO BAG" class="cart cufon add_to_bag" /></span>
             </div>
             {% else %}
             <div class="purchase clearfix">
-              <span><input type="submit" name="add" id="shappify_add_to_cart_btn" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
+              <span><input type="submit" name="add" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
             </div>
             {% endif %}
           <div class="clear">Product Code:</div>
