@@ -105,7 +105,7 @@ input.disabled {opacity:0.5;}
 
 .more-info {padding:0 0 5px 0; margin:0 0 16px 0; font-size:12px; line-height:18px; font-family:"Georgia", serif;}
 .more-info .lower {display:block; color:#999; text-transform:lowercase; font-style:italic;}
-.more-info .upper {color:#222; display:block; text-transform:uppercase; margin-bottom:-2px; font-family:Helvetica, Arial, sans-serif;}
+.more-info .upper {color:hsl(0, 0%, 36%); display:block; text-transform:uppercase; margin-bottom:-2px; font-family:Helvetica, Arial, sans-serif;}
 
 /* dropdown */
 nav li {position:relative; z-index:12000 !important;}
@@ -115,13 +115,13 @@ nav li ul {z-index:10000 !important; position:absolute; text-align:center; min-w
 nav li ul li, nav li ul li a {display:block; margin:0; padding:0; float:none;}
 nav li ul li a {padding:3px 10px; font-style:italic; text-transform:lowercase; font-size:12px; line-height:18px; font-family:"Georgia", serif; color:#fff;}
 nav li ul li a.current {background:none !important; color:#fff !important;}
-nav li ul li a:hover {color:#aaa;}
+nav li ul li a:hover {color:hsl(0, 46%, 46%);}
 
-footer {padding:40px 0 50px 0;}
+footer {padding:40px 0 50px 0;text-align: center;margin:0 auto;width:960px;}
 footer .more-info {margin-bottom:5px;}
 footer .search {float:right;}
 footer li {margin:0;}
-footer li a {margin-right:25px;}
+footer li a {width: 230px;color:white;text-transform:none;}
 footer nav, footer .search {float:left; width:228px; margin-right:16px;}
 footer .search, footer nav.last {margin-right:0;}
 footer nav.horizontal { float:none; width:auto; text-align:center; }
@@ -129,8 +129,8 @@ footer.has_methods_of_payment nav.horizontal { float:left !important; }
 footer nav.horizontal .more-info { display: none; }
 footer nav.horizontal li { display: inline; padding: 0 10px; }
 footer nav.horizontal li a { display: inline; }
-footer nav li {float:none; display:block; font-size:12px; line-height:22px; font-family:"Georgia", serif; font-style:italic; text-transform:lowercase !important;}
-footer nav li a {float:none; display:block; padding:0; margin:0; text-transform:lowercase !important; font-size:12px;}
+footer nav li {float:none; display:block; font-size:12px; line-height:22px; font-family:"Georgia", serif;border-bottom: 1px solid hsl(0, 0%, 20%);padding: 10px 0;}
+footer nav li a {float:none; display:block; padding:0; margin:0; font-size:12px;}
 footer nav li a.current {background:none !important;}
 footer #footer-payment-methods {float:right;}
 
@@ -254,7 +254,7 @@ footer #footer-payment-methods {float:right;}
 
 /* css borders - in one spot to change easily */
 {% if settings.current_preset == "light" %}
-table tr, nav.main, .more-info, #product .collection-nav, #blog .article, #search .results .item {border-bottom:1px dotted #d8d8d8;}
+table tr, nav.main, #product .collection-nav, #blog .article, #search .results .item {border-bottom:1px dotted #d8d8d8;}
 nav.main {border-top:1px dotted #d8d8d8;}
 #product .images .image, .slider-container, #content-table .product, #product .variants .select, #cart .product_image img, #search .results .item .thumbnail {border:1px dotted #d8d8d8;}
 {% else %}
@@ -458,7 +458,12 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	clear: both;
 }
 
-
+.footer_container {
+	background:black;
+	width:100%;
+	position: absolute;
+	left: 0;
+}
 
 
 
