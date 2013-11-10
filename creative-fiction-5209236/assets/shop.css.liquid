@@ -292,8 +292,8 @@ nav.main {border-top:1px dotted #262626;}
 #customer, #recover-password { float:left; width:700px; }
 #customer label, #recover-password label { display:block; }
 #customer input[type=email], #recover-password input[type=email], #customer input[type=password], #recover-password input[type=password], #customer input[type=text], #recover-password input[type=text] { display:block; padding:3px; width:300px; }
-#guest, #customer_sidebar, #order_address, #address_tables { margin:20px 0; float:left; width:260px; }
-#customer_orders, #order_details, #add_address { margin:20px 0; float:right; width:700px; } 
+#guest, #customer_sidebar, #order_address, #address_tables { margin:20px 0; float:left; width: 100%; }
+#customer_orders, #order_details, #add_address { margin:20px 0; float:right; width:400px; } 
 #order_payment, #order_shipping { margin-bottom:20px; }
 #address_tables td, #address_tables label, #address_tables input[type=text], #address_tables input[type=email] { display:block; margin:0; }
 .edit_address { margin-bottom:20px; }
@@ -396,7 +396,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 .product_form {
 	position:absolute;
 	left:310px;
-	top:top: 790px;
+	top: 790px;
 }
 
 .product_margin {
@@ -465,16 +465,44 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	left: 0;
 }
 
+/*b:nth-of-type(2n+1) { float: left; }
+b:nth-of-type(2n) { float: right; }
+*/
 
+.account_nav {
+	float:left;
+}
 
+.account_nav li {
+	float:none;
+}
 
+.account_content_container {
+	width: 715px;
+	float:right;
+}
 
+.account_link_container {
+	color: black;
+	text-align:left;
+	width: 200px;
+}
 
+.customer_account_title {
+	color: white;
+	background: rgb(168, 26, 48);
+	padding: 10px;
+}
 
+.hide {
+	display: none;
+}
 
+.account_field, .account_text {
+	display: inline;
+}
 
-
-
-
-
+.account_fields_container {
+	margin-bottom:20px;
+}
 

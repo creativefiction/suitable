@@ -213,6 +213,30 @@ Shopify.onCartUpdate = function(cart, form) {
 
 
 
+// Account page functionality
+
+
+(function(jQ) {
+    
+  $('.account_link_container').click( function(event) {
+        event.preventDefault();
+
+        console.log(event);
+
+        var content = '.' + event.target.attributes[1].value;
+        console.log(content);
+
+        $('.account_content').fadeOut('fast');
+        $(content).fadeIn('fast');
+
+        return false;
+
+    });
+
+})(jQ);
+
+
+
 
 
 
