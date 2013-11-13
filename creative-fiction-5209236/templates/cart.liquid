@@ -7,46 +7,54 @@ function remove_item(id) {
 <div id="cart" class="cart clearfix">
   {% if cart.item_count == 0 %}
   <div class="c" style="padding:100px 0;">
-    <h2 class="title" style="text-align:center;">Your Cart is Empty</h2>
+    <h2 class="cart_header">Your Cart is Empty</h2>
+    <p><strong>NEED HELP?</strong> Call us at +1 XXX XXX XXX or email us at care@suitablenyc.com.</p>
   </div>
   {% else %}
   <div class="more-info clearfix">
-    <span class="upper">Cart Overview</span>
-    <span class="lower">{{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} ({{ cart.total_price | money }})</span>
+    <h2 class="cart_header">SHOPPING BAG</h2>
+    <p class="cart_helper"><strong>NEED HELP?</strong> Call us at +1 XXX XXX XXX or email us at care@suitablenyc.com.</p>
   </div>
   <form action="/cart" method="post" id="cartform">
     <table>
       <tbody>
+         <tr class="header_container">
+          <th class="cart_table_header">Item</th>
+          <th class="cart_table_header">Description</th>
+          <th class="cart_table_header">Measurements</th>
+          <th class="cart_table_header center">Quantity</th>
+          <th class="cart_table_header center">Unit Price</th>
+        </tr>
         {% for item in cart.items %}
         <tr>
-          <td class="r">
+          <td class="r"> <!-- image -->
             <div class="product_image">
               <a href="{{ item.product.url }}">
-                <img src="{{ item.product.featured_image.src | product_img_url: 'thumb' }}"  alt="{{ item.product.featured_image.url }}" />
+                <img src="{{ item.product.featured_image.src | product_img_url: 'medium' }}"  alt="{{ item.product.featured_image.url }}" />
               </a>
             </div>
           </td>
-          <td>
-            <a href="{{item.product.url }}">{{ item.title }}</a>
-          
-          
-            {% for p in item.properties %}
-             {% unless p.last == blank %}
-              <br /> <b>{{ p.first }}</b>:
-               {% if p.last contains '/uploads/' %}
-                 <a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-               {% else %}
-                  {{ p.last }}
-               {% endif %}
-             {% endunless %}
-            {% endfor %}
-          
-          
+          <td> <!-- description -->
+            <!-- <a href="{{item.product.url }}">{{ item.title }}</a> -->
+            <h4 class="cart_description">{{ item.title }}</h4>
           </td>
-          <td class="c">
-            <input type="text" size="4" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" onfocus="this.select();" class="item-quantity" />
+          <td> <!-- measurements -->
+            <ul class="cart_item_properties">
+              {% for p in item.properties %}
+                <li>{{ p.last }}: {{p.first}}</li>
+              {% endfor %}
+            </ul>
+
           </td>
-          <td class="c">{{ item.line_price | money }}</td>
+          <td class="c"> <!-- quantity -->
+            <div class="quantity_container">
+              <div class="minus_counter">-</div>
+              <span class="cart_item_quantity">{{ item.quantity }}</span>
+              <input class="hidden_input"type="hidden" size="4" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" onfocus="this.select();" class="item-quantity" />
+              <div class="plus_counter">+</div>
+            </div>
+          </td>
+          <td class="c">{{ item.line_price | money }}</td> <!-- unit price -->
           <td class="c"><a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart" onClick="">Remove</a></td>
         </tr>
         {% endfor %}

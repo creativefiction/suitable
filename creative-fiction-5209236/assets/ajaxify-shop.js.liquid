@@ -188,6 +188,9 @@ Shopify.onCartUpdate = function(cart, form) {
 
 //Adding in some custom js
 
+// Product Page
+
+// Accordian
 (function(jQ) {
     
   var allPanels = $('.accordion > dd').hide();
@@ -197,7 +200,6 @@ Shopify.onCartUpdate = function(cart, form) {
   $('.accordion > dt > a').click(function() {
       $this = $(this);
       $target =  $this.parent().next();
-      console.log(this);
 
       if(!$target.hasClass('active')){
          allPanels.removeClass('active').slideUp();
@@ -211,6 +213,58 @@ Shopify.onCartUpdate = function(cart, form) {
 
 })(jQ);
 
+// checkout popup
+
+(function(jQ) {
+
+    $(document).click(function() {
+        $('#add_popup').hide();
+    });
+    
+  $('#add_button').click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    $('#add_popup').show();
+      
+    return false;
+  });
+
+})(jQ);
+
+// Cart page incrementer
+
+(function(jQ) {
+
+    
+  $('.minus_counter').click( function(event) {
+        var currentNumber = parseInt($('.cart_item_quantity').text());
+
+        var $input = $('.hidden_input');
+
+        if (currentNumber !== 0) {
+            currentNumber -= 1;
+            $('.cart_item_quantity').text(currentNumber);
+            $input.val(currentNumber);
+        }
+        
+        return false;
+    });
+
+  $('.plus_counter').click( function(event) {
+        var currentNumber = parseInt($('.cart_item_quantity').text());
+        var $input = $('.hidden_input');
+
+        currentNumber += 1;
+        $('.cart_item_quantity').text(currentNumber);
+        $input.val(currentNumber);
+
+        return false;
+    });
+
+})(jQ);
+
+
 
 
 // Account page functionality
@@ -221,10 +275,7 @@ Shopify.onCartUpdate = function(cart, form) {
   $('.account_link_container').click( function(event) {
         event.preventDefault();
 
-        console.log(event);
-
         var content = '.' + event.target.attributes[1].value;
-        console.log(content);
 
         $('.account_content').fadeOut('fast');
         $(content).fadeIn('fast');
