@@ -61,7 +61,8 @@ function remove_item(id) {
         <tr class="summary">
           <td colspan="2"><label for="note" style="display:block;"><a href="#" onClick="jQuery('#note').toggle(); return false;">Add special instructions for your order&hellip;</a></label></td>
           <td class="c"><input type="submit" id="update-cart" name="update" value="Update" /></td>
-          <td class="c"><span class="total"><strong>{{ cart.total_price | money }}</strong></span></td>
+          <td></td>
+          <!-- <td class="c"><span class="total"><strong>{{ cart.total_price | money }}</strong></span></td> -->
           <td class="c">
             <input type="submit" id="checkout" name="checkout" value="Check Out" />
           </td>

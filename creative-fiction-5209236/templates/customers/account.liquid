@@ -27,10 +27,25 @@
           <h5 class="account_field">{{ customer.name }}</h5><br>
           <p class="account_text">Email Address: </p>
           <h5 class="account_field">{{ customer.email }}</h5><br>
+          <p class="account_text">Password: </p>
+          <a class="account_field">RESET PASSWORD</a><br>
         </div>
-        <div class="address note">
+        <div class="address note account_address_billing">
           {% if customer.default_address != nil %}
             <h3>Billing Address</h3>
+            <p>{{ customer.default_address.address1 }}</p>
+            {% if customer.default_address.address2 != "" %}
+              <p>{{ customer.default_address.address2 }}</p>
+            {% endif %}
+            <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+            <p>{{ customer.default_address.zip}}</p>
+            <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+          <a id="view_address" href="/account/addresses">View Addresses ({{ customer.addresses_count }})</a>
+        </div>
+        <div class="address note account_address_shipping">
+          {% if customer.default_address != nil %}
+            <h3>Shipping Address</h3>
             <p>{{ customer.default_address.address1 }}</p>
             {% if customer.default_address.address2 != "" %}
               <p>{{ customer.default_address.address2 }}</p>
@@ -49,25 +64,139 @@
       <table>
         <thead>
           <tr>
-            <th class="order_number">Order</th>
             <th class="date">Date</th>
-            <th class="payment_status">Payment Status</th>
+            <th class="order_number">Order</th>
+            <!-- <th class="payment_status">Payment Status</th>
             <th class="fulfillment_status">Fulfillment Status</th>
-            <th class="total">Total</th>
+            <th class="total">Total</th> -->
           </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
           {% for order in customer.orders %}
           <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
-            <td>{{ order.name | link_to: order.customer_url }}</td>
-            <td><span class="note">{{ order.created_at | date: "%b %d, %Y" }}</span></td>
+            <td><span class="note">{{ order.created_at | date: "%m/%d/%Y" }}</span></td>
+            <td class="number">{{ order.name | link_to: order.customer_url }}</td>
+            
             <td><span class="status_{{ order.financial_status }}">{{ order.financial_status }}</span></td>
             <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status }}</span></td>
             <td><span class="total money">{{ order.total_price | money }}</span></td>
           </tr>
           {% endfor %}
-        </tbody>
+        </tbody> -->
       </table>
+
+
+      <h1>{{line_item.price | money}}</h1>
+      {% for order in customer.orders %}
+        <dl class="accordion">
+        <dt>
+          <a class="order_description_title" href="">
+            <span class="note">{{ order.created_at | date: "%m/%d/%Y" }}</span>
+            <span class="number">{{ order.name }}</span>
+            <span class="open_close_arrow close_rotate"><</span>
+          </a>
+        </dt>
+        <dd class="order_description_container hide">
+          <table class="order_summary">
+            <tbody>
+              {% for line_item in order.line_items %}
+                <tr>
+                  <td>{{ line_item.title }}</td>
+                  <td class="order_x">X</td>
+                  <td>1</td>
+                  <td>=</td>
+                  <td>{{ line_item.price | money }}</td>
+                </tr>
+              {% endfor %}
+              <tr>
+                <td></td>
+                <td></td>
+                <td>SHIPPING</td>
+                <td>=</td>
+                <td>{{ order.shipping_price | money }}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>TAXES</td>
+                <td>=</td>
+                <td>{{ order.tax_price | money }}</td>
+              </tr>
+              <tr class="account_total">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ order.total_price | money }} {{ order.currency }}</td>
+              </tr>
+              <tr>
+                <td>Status: <strong>{{order.fulfillment_status}}</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Shipping Address:</td>
+                <td>
+                  <span>{{ order.billing_address.name }}</span><br>
+                  <span>{{ order.billing_address.street }}</span><br>
+                  <span>{{ order.billing_address.city }}, {{ order.billing_address.province }}, {{ order.billing_address.zip }}</span>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="4">Measurements I provided:</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="order_measurements">
+                    <input class="order_radio" type="radio" disabled="disabled" name"body_measurements" value="body_measurements"> Based on body measurements<br>
+                    <input class="order_radio" type="radio" disabled="disabled" name"suit_measurements" value="suit_measurements"> Based on another suite I have
+                  </div>
+                </td>
+                <td colspan="4" class="order_measurements_container">
+
+                    <div class="order_measurements">
+                      <div class="order_left_measurements">
+                          {% for item in order.line_items %}
+                            {% for p in item.properties limit:5 %}
+                              <input class="measurement_input" type="text" name="properties[{{p.first}}]" value="{{p.last}}"><label>{{p.first}}</label>
+                            {% endfor %}
+                          {% endfor %}
+                      </div>
+                      <div class="order_right_measurements">
+                        {% for item in order.line_items %}
+                            {% for p in item.properties limit:5 offset:5 %}
+                              <input disabled="disabled" class="measurement_input" type="text" name="properties[{{p.first}}]" value="{{p.last}}"><label>{{p.first}}</label>
+                            {% endfor %}
+                          {% endfor %}
+
+                          <script>
+                            $('input').mousedown(function(event) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              return false;
+                            });
+
+                          </script>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </dd>
+      {% endfor %}
+
+
+
+
       {% else %}
         <p>You haven't placed any orders yet.</p>
       {% endif %}

@@ -4,8 +4,12 @@
   <div class="product_body clearfix">
     <div class="images">
       <div class="featured">
-        <div class="image">
+        <div class="image product_container_video">
           <a href="{{ product.featured_image.src | product_img_url: 'original' }}" class="cloud-zoom" rel="position: 'inside', showTitle: 'false'" id="placeholder"><img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" /></a>
+
+          <div class="iframe_container">
+            <iframe src="//player.vimeo.com/video/75602188" width="400" height="215" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
         </div>
       </div> <!-- /.featured -->
       {% if product.images.size > 1 %}
@@ -17,6 +21,14 @@
           </a>
         </div>
         {% endfor %}
+
+        <div class="image">
+          <a id="video_thumb" class="video_thumb_container" href="{{ product.images.first.src | product_img_url: 'original' }}" rel="useZoom: 'placeholder', smallImage: '{{ product.images.first.src | product_img_url: 'grande' }}', tint: '#ffffff'">
+            <img src="{{ product.images.first.src | product_img_url: 'small' }}" alt="{{ product.images.first.src | escape }}" />
+            <img class="video_play" src="http://cdn.shopify.com/s/files/1/0289/0446/files/video-icon.png?2231" />
+          </a>
+        </div>
+
       </div><!-- /.thumbs -->
       {% endif %}
     </div> <!-- /.images -->
@@ -149,7 +161,7 @@
                 <span><input type="submit" name="add" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
               </div>
               {% endif %}
-            <div class="clear">Product Code: {{product.id}}</div>
+            <div class="clear">Product Code:</div>
             <div id="add_popup" class="add_popup hide">
               <h3 class="popup_heading">1 item added to bag</h3>
               <p class="popup_helper">(you have {{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} in your bag)</p>
@@ -160,7 +172,7 @@
                 <div class="popup_product_text_container">
                   <p class="popup_product_title">{{ product.title }}</p>
                   <p class="popup_product_text">Unit Price: {{ product.price_min | money }}</p>
-                  <p class="popup_product_color">Color: {{ product.color }}</p>
+                  <p class="popup_product_color">Color: {{ product.options.color }}</p>
                   <p class="popup_product_text">Quantity: 1</p>
                 </div>
               </div>

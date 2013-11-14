@@ -236,7 +236,6 @@ Shopify.onCartUpdate = function(cart, form) {
 
 (function(jQ) {
 
-    
   $('.minus_counter').click( function(event) {
         var currentNumber = parseInt($('.cart_item_quantity').text());
 
@@ -287,10 +286,31 @@ Shopify.onCartUpdate = function(cart, form) {
 })(jQ);
 
 
+// Product Page Video
+
+(function(jQ) {
+    
+    $('#video_thumb').click( function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var content = '.' + event.target.attributes[1].value;
+        $('.iframe_container').css('z-index', '10000');
+        return false;
+    });
+
+    $('.iframe.click').click( function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+
+    $('.cloud-zoom-gallery').click(function() {
+        $('.iframe_container').css('z-index', '0');
+    });
 
 
 
 
+})(jQ);
 
 
 
