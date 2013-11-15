@@ -950,6 +950,7 @@ img.aligncenter {
 }
 #content-container .section-boxed {
   margin: 90px auto;
+  margin-bottom: -45px;
 }
 .content-boxed {
   max-width: 1032px;
@@ -1405,6 +1406,7 @@ textarea.invalid {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: normal;
+  text-align:center;
   -webkit-transition: color 0.3s ease;
   -moz-transition: color 0.3s ease;
   -ms-transition: color 0.3s ease;
@@ -1420,7 +1422,7 @@ textarea.invalid {
   width: 20px;
   height: 3px;
   background: #26ae90;
-  left: 50%;
+  left: 48%;
   margin-left: -10px;
   bottom: 6px;
 }
@@ -1436,7 +1438,7 @@ textarea.invalid {
   background-size: 5px;
   position: absolute;
   top: 35%;
-  right: 5px;
+  left: 5px;
   -moz-opacity: 0.3;
   -khtml-opacity: 0.3;
   -webkit-opacity: 0.3;
@@ -1738,8 +1740,9 @@ textarea.invalid {
   content: "";
 }
 .copyrights {
-  float: left;
   color: #555555;
+  width: 100%;
+  text-align: center;
 }
 /*Header Social Icons*/
 #social-profiles {
@@ -4389,6 +4392,7 @@ a.ps-next-project-link {
 }
 #content-container .section-full-width .section-boxed {
   margin: 90px auto;
+  margin-bottom:0;
 }
 /*.section-full-width .section-boxed img{
 	margin-top: 20px;
@@ -5706,7 +5710,7 @@ img.wp-post-image {
   width: auto;
 }
 #logo-container img {
-  width: 133px;
+  width: 300px;
 }
 /* Sticky menu */
 .fixed-header #header {
@@ -6039,6 +6043,8 @@ img.wp-post-image {
 .home_link_caption {
   text-align: center;
 }
+
+
 
 
 

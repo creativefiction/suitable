@@ -57,9 +57,7 @@ if($footer_layout!="no-footer"){ ?>
 <div class="footer-bottom">
 	<div class="section-boxed">
 <span class="copyrights">
-&copy; <?php echo __( 'Copyright', 'pexeto' ).' ';
-	bloginfo('name'); 
-?>
+&copy; 2013 Suitable | All Rights Reserved | Terms & Conditions  
 </span>
 <div class="footer-nav">
 <?php wp_nav_menu(array('theme_location' => 'pexeto_footer_menu', 'fallback_cb'=>'pexeto_no_footer_menu', 'depth'=>1)); ?>

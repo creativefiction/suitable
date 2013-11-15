@@ -22,9 +22,9 @@
       <div id="customer_detail" class="group">
         <div class="account_fields_container">
           <p class="account_text">First Name: </p>
-          <h5 class="account_field">{{ customer.name }}</h5><br>
+          <h5 class="account_field">{{ customer.first_name }}</h5><br>
           <p class="account_text">Last Name: </p>
-          <h5 class="account_field">{{ customer.name }}</h5><br>
+          <h5 class="account_field">{{ customer.last_name }}</h5><br>
           <p class="account_text">Email Address: </p>
           <h5 class="account_field">{{ customer.email }}</h5><br>
           <p class="account_text">Password: </p>
@@ -41,7 +41,7 @@
             <p>{{ customer.default_address.zip}}</p>
             <p>{{ customer.default_address.phone }}</p>
           {% endif %}
-          <a id="view_address" href="/account/addresses">View Addresses ({{ customer.addresses_count }})</a>
+          <a id="view_address" href="/account/addresses">EDIT</a>
         </div>
         <div class="address note account_address_shipping">
           {% if customer.default_address != nil %}
@@ -54,7 +54,7 @@
             <p>{{ customer.default_address.zip}}</p>
             <p>{{ customer.default_address.phone }}</p>
           {% endif %}
-          <a id="view_address" href="/account/addresses">View Addresses ({{ customer.addresses_count }})</a>
+          <a id="view_address" href="/account/addresses">EDIT</a>
         </div>
       </div>
     </div>
