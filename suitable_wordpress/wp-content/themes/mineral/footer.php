@@ -44,7 +44,8 @@ if($footer_layout!="no-footer"){ ?>
 		for($i=1; $i<=$column_num; $i++){
 			$number = $sidebar_numbers[$i-1]; 
 			$add_class = $i==$column_num ? ' nomargin':'';
-			?><div class="col<?php echo $add_class; ?>"><?php
+			$class = 'footer';
+			?><div class="col<?php echo $add_class;?> <?php echo $class.$number; ?>"><?php
 			dynamic_sidebar("footer-".$number);
 			?></div><?php
 		}

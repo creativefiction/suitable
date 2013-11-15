@@ -950,7 +950,7 @@ img.aligncenter {
 }
 #content-container .section-boxed {
   margin: 90px auto;
-  margin-bottom: -45px;
+  margin-bottom: -25px;
 }
 .content-boxed {
   max-width: 1032px;
@@ -1055,6 +1055,9 @@ img.aligncenter {
   margin-right: 0;
   clear: right;
 }
+
+
+
 /* -------------- 3.5 WordPress Default Elements -----------------*/
 /* Wordpress Widgets */
 .widget_categories li a,
@@ -1422,7 +1425,7 @@ textarea.invalid {
   width: 20px;
   height: 3px;
   background: #26ae90;
-  left: 48%;
+  left: 49%;
   margin-left: -10px;
   bottom: 6px;
 }
@@ -2035,6 +2038,7 @@ table td {
 /* -------------------- 4.6 Services Boxes ---------------------*/
 .services-wrapper {
   width: 100%;
+  margin-bottom: 75px;
 }
 .services-box,
 .services-title-box {
@@ -4392,7 +4396,6 @@ a.ps-next-project-link {
 }
 #content-container .section-full-width .section-boxed {
   margin: 90px auto;
-  margin-bottom:0;
 }
 /*.section-full-width .section-boxed img{
 	margin-top: 20px;
@@ -5701,7 +5704,7 @@ img.wp-post-image {
   margin-left: -90px;
   position:relative;
   width: 100%;
-  left: 50%;
+  left: 55%;
 }
 #logo-container a {
   background: none;
@@ -6012,7 +6015,7 @@ img.wp-post-image {
   margin-left: -148px;
   position:relative;
   width: 100%;
-  left: 50%;
+  left: 55%;
   margin-bottom: 20px;
   margin-top:20px;
 }
@@ -6044,9 +6047,24 @@ img.wp-post-image {
   text-align: center;
 }
 
+.footerone, .footertwo, .footerthree, .footerfour {
+  width:16% !important;
+}
 
+.footerfive {
+  width:23% !important;
+}
 
+#mc-embedded-subscribe {
+  position: absolute;
+  left: 150px;
+  top: 2px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-family: Quicksand;
+}
 
-
-
+#mc-embedded-subscribe-form {
+  position:relative;
+}
 
