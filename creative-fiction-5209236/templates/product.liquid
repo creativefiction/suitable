@@ -31,6 +31,15 @@
 
       </div><!-- /.thumbs -->
       {% endif %}
+      <div class="social">
+        <span class='st_sharethis' displayText='Share'></span>
+        <span class='st_email' displayText=''></span>
+        <span class='st_facebook' displayText=''></span>
+        <span class='st_twitter' displayText=''></span>
+        <span class='st_googleplus' displayText=''></span>
+        <span class='st_tumblr' displayText=''></span>
+        <span class='st_pinterest' displayText=''></span>
+      </div>
     </div> <!-- /.images -->
 
     <div class="content">
@@ -70,10 +79,6 @@
         <dd class="product_description_container">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
       </dl>
       
-      <div class="social">
-        {% include 'like' %}
-      </div>
-      
       {% if settings.product_description_position == "bottom" %}
       <div class="description">
         {{ product.description }}
@@ -84,14 +89,7 @@
       </div>
       {% endif %}
 
-      
-    </div>
-
-
-
-  </div> <!-- /.product_body -->
-
-  <div class="form_container">
+      <div>
         <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix" enctype="multipart/form-data">
           {% if product.options.size > 1 %}
           <div class="select clearfix">
@@ -118,16 +116,8 @@
           {% if product.available %} 
           <br/>
           <div class="steps_container">
-            <div class="step1">
-              <h3>Step 1</h3>
-              <p>What are these measurements based on?</p>
-              <input id="body_measurements" type="radio" name="body_measurements" value="body_measurements"><label for="349"> Based on body measurements</label><br>
-              <input id="suit_measurements" type="radio" name="body_measurements" value="suit_measurements"><label for="349"> Based on another suite I have</label> 
-            </div>
-
             <div class="step2">
-              <h3>Step 2</h3>
-              <p>Please enter your measurements in centimeters. If you have questions, email care@suitablenyc.com.</p>
+              <p>Please enter your measurements in centimeters.</p>
               <div class="measurements_container">
                 <div class="left_measurements">
                   <input class="measurement_input" type="text" id="jacketlength" name="properties[Jacket Length]"><label>Jacket Length</label>
@@ -135,65 +125,66 @@
                   <input class="measurement_input" type="text" id="neck_size" name="properties[Neck Size]"><label>Neck Size</label>
                   <input class="measurement_input" type="text" id="chest_size" name="properties[Chest Size]"><label>Chest Size</label>
                   <input class="measurement_input" type="text" id="bicep_size" name="properties[Bicep Size]"><label>Bicep Size</label>
-                  <input class="measurement_input" type="text" id="wrist_size" name="properties[Wrist Size]"><label>Wrist Size</label>
-                  <input class="measurement_input" type="text" id="sleeve_length" name="properties[Sleeve Length]"><label>Sleeve Length</label>
                 </div>
-                <div class="right_measurements">
-                  <input class="measurement_input" type="text" id="waist_size" name="properties[Waist Size]"><label>Waist Length</label>
+                <div class="middle_measurements">
+                   <input class="measurement_input" type="text" id="wrist_size" name="properties[Wrist Size]"><label>Wrist Size</label>
+                  <input class="measurement_input" type="text" id="sleeve_length" name="properties[Sleeve Length]"><label>Sleeve Length</label>
+                  <input class="measurement_input" type="text" id="jacket_waist_size" name="properties[Jacket Waist Size]"><label>Jacket Waist Size</label>
                   <input class="measurement_input" type="text" id="stomach_size" name="properties[Stomach Size]"><label>Stomach Size</label>
+                  <input class="measurement_input" type="text" id="pant_waist_size" name="properties[Pant Waist Size]"><label>Pant Waist Size</label>
+                </div>
+                 <div class="left_measurements">
                   <input class="measurement_input" type="text" id="hip_size" name="properties[Hip Size]"><label>Hip Size</label>
                   <input class="measurement_input" type="text" id="torso_length" name="properties[Torso Length]"><label>Torso Length</label>
-                  <input class="measurement_input" type="text" id="inseam_length" name="properties[inseam_length]"><label>Inseam Size</label>
+                  <input class="measurement_input" type="text" id="inseam_length" name="properties[inseam_length]"><label>Inseam Length</label>
                   <input class="measurement_input" type="text" id="thigh_size" name="properties[Thigh Size]"><label>Thigh Size</label>
                   <input class="measurement_input" type="text" id="pant_length" name="properties[Pant Length]"><label>Pant Length</label>
                 </div>
               </div>
-            </div>
-
-            <div class="step3">
-              <h3>Step 3</h3>
-              <p>You're measured up. Let's get your suit on the road.</p>
-              <div class="purchase clearfix">
-                <span><input id="add_button" type="submit" name="add" value="ADD TO BAG" class="cart cufon add_to_bag" /></span>
-              </div>
-              {% else %}
-              <div class="purchase clearfix">
-                <span><input type="submit" name="add" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
-              </div>
-              {% endif %}
-            <div class="clear">Product Code:</div>
-            <div id="add_popup" class="add_popup hide">
-              <h3 class="popup_heading">1 item added to bag</h3>
-              <p class="popup_helper">(you have {{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} in your bag)</p>
-              <div class="popup_product_container">
-                <figure class="popup_image">
-                  <img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="{{ product.featured_image.alt | escape }}">
-                </figure>
-                <div class="popup_product_text_container">
-                  <p class="popup_product_title">{{ product.title }}</p>
-                  <p class="popup_product_text">Unit Price: {{ product.price_min | money }}</p>
-                  <p class="popup_product_color">Color: {{ product.options.color }}</p>
-                  <p class="popup_product_text">Quantity: 1</p>
+              <div class="step3">
+                <div class="error_text hide">We just need a few more measurements.</div>
+                <div class="purchase clearfix">
+                  <span><input id="add_button" type="submit" name="add" value="ADD TO BAG" class="cart cufon add_to_bag" /></span>
+                </div>
+                {% else %}
+                <div class="purchase clearfix">
+                  <span><input type="submit" name="add" value="SOLD OUT" class="cart cufon disabled" disabled="disabled" /></span>
+                </div>
+                {% endif %}
+                <div class="clear">Product Code:</div>
+                <div id="add_popup" class="add_popup hide">
+                  <h3 class="popup_heading">1 item added to bag</h3>
+                  <p class="popup_helper">(you have {{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} in your bag)</p>
+                  <div class="popup_product_container">
+                    <figure class="popup_image">
+                      <img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="{{ product.featured_image.alt | escape }}">
+                    </figure>
+                    <div class="popup_product_text_container">
+                      <p class="popup_product_title">{{ product.title }}</p>
+                      <p class="popup_product_text">Unit Price: {{ product.price_min | money }}</p>
+                      <p class="popup_product_color">Color: {{ product.options.color }}</p>
+                      <p class="popup_product_text">Quantity: 1</p>
+                    </div>
+                  </div>
+                  <div class="popup_buttons">
+                    <input type="submit" name="add" value="VIEW BAG" class="cart cufon add_to_bag popup_button" />
+                    <input type="submit" id="checkout" name="checkout" value="PURCHASE" class="cart cufon add_to_bag popup_button popup_purchase" />
+                  </div>
                 </div>
               </div>
-              <div class="popup_buttons">
-                <input type="submit" name="add" value="VIEW BAG" class="cart cufon add_to_bag popup_button" />
-                <input type="submit" id="checkout" name="checkout" value="PURCHASE" class="cart cufon add_to_bag popup_button popup_purchase" />
-              </div>
-              </div>
-              </div>
-              
-
             </div>
-
-
             </div>
-
-
+            </div>
           </div>
           
         </form>
       </div> <!-- End form container -->
+
+    </div>
+
+  </div> <!-- /.product_body -->
+
+  
   
   {% if collection and collection.products.size > 1 %}
   

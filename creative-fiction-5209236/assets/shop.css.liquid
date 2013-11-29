@@ -39,7 +39,7 @@ table tr td:last-child {padding-right:0px;}
 input, a {outline:none !important;}
 input:hover, a:hover {outline:none !important;}
 input:active, a:active {outline:none !important;}
-input[type=submit], button, a.btn {border:none; outline:none; padding:10px 25px; color:black; background:white; font-size:12px; text-transform:uppercase;font-weight:bold;border:1px solid black;}
+input[type=submit], button, a.btn {border:none; outline:none; padding:8px 25px;background:rgb(168,26,48); color:white; font-size:15px; text-transform:uppercase;font-weight:bold;border:1px solid rgb(168,26,48);}
 input[type=submit]:hover, button:hover, a.btn:hover {background:rgb(168,26,48);color:white;border:1px solid rgb(168,26,48);}
 
 header {padding:20px 0; position:relative;}
@@ -175,10 +175,10 @@ footer #footer-payment-methods {float:right;}
 
 {% if settings.product_images_position == "left" %}
 #product .images {float:left;}
-#product .content {float:right; width:355px;}
+#product .content {float:right; width:450px;}
 {% else %}
 #product .images {float:right;}
-#product .content {float:left; width:355px;}
+#product .content {float:left; width:450px;}
 {% endif %}
 
 #product .select .selector-wrapper:last-child {margin-right:0;}
@@ -197,7 +197,7 @@ footer #footer-payment-methods {float:right;}
 #product .product_body {margin-bottom:35px;}
 #product .details {padding:13px 0; font-size:12px; font-family:'Montserrat', sans-serif; font-style:italic; text-transform:lowercase;}
 #product .variants span.price {display:block; font-size:15px; padding:13px 0;}
-#product .variants label {display:block; font-size:13px; text-transform:uppercase;display:inline;}
+#product .variants label {display:block; font-size:12px;display:inline;font-weight:600;}
 #product .variants select {display:block;}
 #product .variants .select {padding:10px; margin:16px 0 0 0; background:#FCFCFC;}
 #product .price {float:left; margin:16px 0; padding:10px 0; color:{{ settings.header_color }}; font-size:16px; }
@@ -402,15 +402,11 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 .left_measurements {
 	float:left;
-	width: 200px;
+	width: 160px;
 }
 
-.right_measurements {
-	float:right;
-	width: 194px;
-}
-
-.step1, .step2, .step3 {
+.middle_measurements {
+	width: 170px;
 	float:left;
 }
 
@@ -419,13 +415,12 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .step2 {
-	width: 402px;
-	margin-left: 20px;
+	width: 500px;
 }
 
 .step3 {
-	margin-left: 40px;
-	width:235px;
+	float:right;
+	margin-right: 39px;
 }
 
 input[type=text].measurement_input { /* had to add additional selectors due to specificity */
@@ -433,14 +428,20 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	border-radius:0;
 	margin-right:5px;
 	margin-bottom:10px;
-	width:50px;
+	width: 32px;
 	text-align:center;
+	font-style:italic;
 }
 
 .step1 p, .step2 p, .step3 p {
 	font-size: 18px;
 	margin-bottom: 15px;
 	color:black;
+}
+
+.step2 p {
+	font-weight: bold;
+	font-style: italic;
 }
 
 
@@ -561,13 +562,13 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 }
 
 .add_popup {
-	border: 1px solid black;
+	border: 1px solid hsl(0, 0%, 0%);
 	padding: 10px 20px;
-	width:244px;
-	position: relative;
-	top: -338px;
-	left: -62px;
-	background:white;
+	width: 276px;
+	position: absolute;
+	margin-top: -272px;
+	margin-left: -141px;
+	background: hsl(0, 100%, 100%);
 }
 
 .popup_product_text_container {
@@ -674,11 +675,11 @@ input.popup_button:hover {
 
 .cart_item_properties {
 	list-style-type: none;
-	width:260px;
+	width:290px;
 }
 
-.cart_item_properties li:nth-of-type(2n+1) { float: left; width:130px; }
-.cart_item_properties li:nth-of-type(2n) { float: right; width:130px; }
+.cart_item_properties li:nth-of-type(2n+1) { float: left; width:134px; }
+.cart_item_properties li:nth-of-type(2n) { float: right; width:146px; }
 
 .order_number {
 	width:80%;
@@ -732,7 +733,7 @@ input.popup_button:hover {
 
 .order_left_measurements {
 	float: left;
-	width: 202px;
+	width: 190px;
 }
 
 .order_right_measurements {
@@ -788,3 +789,54 @@ input.popup_button:hover {
 #view_address {
 	font-style: italic;
 }
+
+.error_text {
+	color: hsl(344, 89%, 31%);
+	font-size: 16px;
+	margin-left: -347px;
+	margin-top: 23px;
+	font-weight: 500;
+	position: absolute;
+}
+
+.stButton .sharethis {
+	background-image:url("") !important;
+	background-size: 30px !important;
+	font-size:18px !important;
+	padding-left:0 !important;
+}
+
+.stButton .pinterest {
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/pinterest-icon.png?2866") !important;
+	background-size: 30px !important;
+}
+
+.stButton .tumblr{
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/tumblr-icon.png?2912") !important;
+	background-size: 30px !important;
+}
+
+.stButton .googleplus {
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/google-plus-icon.png?2912") !important;
+	background-size: 30px !important;
+}
+
+.stButton .twitter {
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/twitter-icon.png?2912") !important;
+	background-size: 30px !important;
+}
+
+.stButton .facebook {
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/facebook-icon.png?2912") !important;
+	background-size: 30px !important;
+}
+
+.stButton .email {
+	background-image:url("http://cdn.shopify.com/s/files/1/0289/0446/files/email-icon.png?2912") !important;
+	background-size: 30px !important;
+}
+
+.stButton .chicklets {
+	height:24px !important;
+}
+	
