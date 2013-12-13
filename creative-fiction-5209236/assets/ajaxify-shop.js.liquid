@@ -288,7 +288,21 @@ Shopify.onCartUpdate = function(cart, form) {
         $(content).fadeIn('fast');
 
         return false;
+    });
 
+    $(".create_account_box").hover(function() {
+        $(".create_account_box").toggleClass('red_border');
+        $(".get_started_header").toggleClass('red_color');
+    });
+
+    $(".create_account_box").click( function(event) {
+        var href = 'http://creative-fiction.myshopify.com/account/register';
+        window.location = href;
+    });
+
+    $(".member_splash").click( function(event) {
+        var href = 'http://creative-fiction.myshopify.com/account/login';
+        window.location = href;
     });
 
 })(jQ);

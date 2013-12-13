@@ -3,11 +3,11 @@
 <div id="template">
   <div id="customer">
     <div class="template_header">
-      <h2 class="customer_account_title signin_title">SIGN IN</h2>
+      <h2 class="customer_account_title signin_title">MY ACCOUNT</h2>
     </div>
 
     <div class="login_box">
-      <h3 class="account_login_header">LOG IN TO YOUR ACCOUNT</h3>
+      <h3 class="login_header">Log into your account</h3>
 
     {% form 'customer_login' %}
       {{ form.errors | default_errors }}
@@ -25,7 +25,7 @@
         <div id="login_password" class="clearfix large_form">
           <input type="password" value="" name="customer[password]" id="customer_password" class="large password" size="16" placeholder="Password" />
           <div id="forgot_password">
-            <a href="#" class="forgot_password" onclick="showRecoverPasswordForm();return false;">Forgot Password?</a>
+            <a href="" class="forgot_password" onclick="showRecoverPasswordForm();return false;">Forgot Password?</a>
           </div>
         </div>
 
@@ -36,36 +36,46 @@
         <!-- <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span> -->
       </div>
     {% endform %}
+
+    {% comment %}
+      Recover Password Form
+    {% endcomment %}
+
+    <div id="recover-password" style='display:none'>
+      <div class="arrow_up"></div>
+      <div class="template_header forgot_password_container">
+        <div class="close_forgot_password">
+          <a href="#" onclick="hideRecoverPasswordForm();return false;">x</a>
+        </div>
+        <h2 class="title forgot_title">FORGOT YOUR PASSWORD?</h2>
+        <p class="note center forgot_password_note">
+          Don’t worry. Enter your email address and we’ll send you a new password immediately.
+        </p>
+        {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+
+        <div id="recover_email" class="clearfix large_form">
+          <input type="email" value="" size="30" placeholder="Your email address" name="email" id="recover-email" class="large" />
+        </div>
+        <div class="action_bottom forgot_bottom">
+          <input id="forgot_password_submit" class="btn" type="submit" value="Submit" />
+          <!-- <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span> -->
+        </div>
+      {% endform %}
+      </div>
+    </div>
+
+
+
+
   </div> <!-- End login box -->
 
 
 
-  {% comment %}
-    Recover Password Form
-  {% endcomment %}
-
-  <div id="recover-password" style='display:none'>
-    <div class="template_header">
-      <h2 class="title">Reset Password</h2>
-      <p class="note">We will send you an email to reset your password.</p>
-    </div>
-
-    {% form 'recover_customer_password' %}
-      {{ form.errors | default_errors }}
-
-      <div id="recover_email" class="clearfix large_form">
-        <label for="email" class="large">Email</label>
-        <input type="email" value="" size="30" name="email" id="recover-email" class="large" />
-      </div>
-      <div class="action_bottom">
-        <input class="btn" type="submit" value="Submit" />
-        <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span>
-      </div>
-    {% endform %}
-  </div>
+  
 
   <div class="create_account_box">
-    <h3 class="account_login_header">CREATE AN ACCOUNT</h3>
+    <h3 class="account_login_header get_started_header">I want to get started</h3>
   </div>
 
   </div> <!-- End customer div -->
@@ -89,9 +99,12 @@
 
 
 <script type="text/javascript">
-  function showRecoverPasswordForm() {
+  function showRecoverPasswordForm(event) {
+
+    //$("#recover-password").show();
+
     document.getElementById('recover-password').style.display = 'inline-block';
-    document.getElementById('customer').style.display='none';
+    //document.getElementById('customer').style.display='none';
   }
 
   function hideRecoverPasswordForm() {

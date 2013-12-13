@@ -285,7 +285,7 @@ nav.main {border-top:1px dotted #262626;}
 
 .additional-info { margin-bottom:40px; text-align:center; font-size:11px; }
 
-.action_bottom { margin-top:20px; }
+.action_bottom { margin-top:10px; }
 #customer, #recover-password { float:left; width:100%; margin-bottom: 60px; }
 #customer label, #recover-password label { display:block; }
 #customer input[type=email], #recover-password input[type=email], #customer input[type=password], #recover-password input[type=password], #customer input[type=text], #recover-password input[type=text] { display:block; padding:3px; width:300px; border-radius:0; border:1px solid black;width:100%;margin-top:20px;height:30px; }
@@ -516,12 +516,15 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	padding:20px;
 	float:left;
 	width: 425px;
-	height: 300px;
+	min-height: 300px;
 }
 
 .signin_title {
-	background: black;
+	background: hsl(0, 0%, 0%);
 	text-align: center;
+	font-size: 17px;
+	font-weight: normal;
+	line-height: 22px;
 }
 
 .create_account_box {
@@ -529,12 +532,20 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	padding:20px;
 	float: right;
 	width: 425px;
-	height: 300px;
+	min-height: 300px;
 }
 
-.account_login_header {
-	font-weight:bold;
+.login_header {
 	text-align:center;
+	color: rgb(207,12,50);
+	font-size:22px;
+	margin-bottom: 45px;
+}
+
+.get_started_header {
+	margin-top: 130px;
+	text-align:center;
+	font-size:22px;
 }
 
 #customer_login {
@@ -553,6 +564,8 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	float:right;
 	color:black;
 	font-style:italic;
+	font-size: 12px;
+	margin-top: 10px;
 }
 
 .form_container {
@@ -839,4 +852,145 @@ input.popup_button:hover {
 .stButton .chicklets {
 	height:24px !important;
 }
-	
+
+.close_forgot_password {
+	text-align: right;
+}
+
+.close_forgot_password a {
+	color:black;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.forgot_title {
+	text-align: center;
+	color: hsl(348, 89%, 43%);
+	font-size: 22px;
+}
+
+.forgot_password_container {
+	background: rgb(224,224,224);
+	padding: 15px;
+	padding-bottom:1px;
+	width: 367px;
+	margin-left: 18px;
+	margin-top: 30px;
+}
+
+.forgot_password_container li {
+	list-style-type: none;
+	margin-left: 66px;
+	font-weight: bold;
+	margin-top: -20px;
+	margin-bottom: -3px;
+}
+
+.arrow_up {
+	width: 0; 
+	height: 0; 
+	border-left: 13px solid hsla(0, 0%, 0%, 0);
+	border-right: 13px solid hsla(0, 0%, 0%, 0);
+	border-bottom: 18px solid hsl(0, 0%, 88%);
+	position: absolute;
+	margin-left: 389px;
+	margin-top: 12px;
+	color:black;
+}
+
+#recover-email {
+	background: hsl(0, 0%, 0%) !important;
+	background: -moz-linear-gradient(top, white, black) !important; 
+	background: -webkit-gradient(linear, 0 0, 0 60%, from(hsl(0, 5%, 35%)), to(hsl(0, 0%, 16%))) !important; 
+	border-radius: 30px !important;
+	padding-left: 20px !important;
+	width: 250px !important;
+	margin: 0 auto !important;
+	color: hsl(0, 100%, 100%) !important;
+}
+
+.forgot_password_note {
+	width: 355px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.forgot_bottom {
+	width: 110px;
+	margin: 15px auto;
+}
+
+#forgot_password_submit {
+	padding: 5px 30px !important;
+	background: hsl(351, 73%, 38%) !important;
+	background: -moz-linear-gradient(top, white, black) !important; 
+	background:-webkit-gradient(linear, 0 0, 0 67%, from(hsl(0, 90%, 45%)), to(hsl(351, 73%, 38%))) !important;
+}
+
+.red_color {
+	color: hsl(348, 89%, 43%);
+}
+
+.red_border {
+	border: 1px solid hsl(348, 89%, 43%);
+	cursor: pointer;
+}
+
+.create_account_container {
+	border: 1px solid black;
+	padding:20px;
+	float: right;
+	width: 425px;
+	min-height: 300px;
+}
+
+.create_input {
+	background: hsl(0, 0%, 0%) !important;
+	background: -moz-linear-gradient(top, white, black) !important; 
+	background: -webkit-gradient(linear, 0 0, 0 60%, from(hsl(0, 5%, 35%)), to(hsl(0, 0%, 16%))) !important; 
+	border-radius: 30px !important;
+	padding-left: 20px !important;
+	width: 95% !important;
+	margin: 0 auto !important;
+	color: hsl(0, 100%, 100%) !important;
+	border: none !important;
+}
+
+.create_required_span {
+	margin-top: 26px;
+	display: inline-block;
+	position: absolute;
+}
+
+.create_header {
+	color: hsl(348, 89%, 43%);
+	font-size: 20px;
+}
+
+.create_title {
+	font-weight: bold;
+	margin-top:15px;
+	margin-bottom: 4px;
+	font-size: 18px;
+}
+
+.create_bottom {
+	float: right;
+	margin-top: 20px;
+}
+
+.create_account_submit {
+	padding: 5px 30px !important;
+	background: hsl(351, 73%, 38%) !important;
+	background: -moz-linear-gradient(top, white, black) !important; 
+	background:-webkit-gradient(linear, 0 0, 0 67%, from(hsl(0, 90%, 45%)), to(hsl(351, 73%, 38%))) !important;
+}
+
+.member_splash {
+	float:left;
+}
+
+.create_account_page_container {
+	float: right !important;
+	width: auto !important;
+}
