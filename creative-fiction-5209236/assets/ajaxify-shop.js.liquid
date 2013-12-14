@@ -310,7 +310,9 @@ Shopify.onCartUpdate = function(cart, form) {
             $member.show();
         }
         $target.hide();
+        $(".create_account_error").empty();
         $(".create_account_container").show();
+        $("#recover-password").hide();
     });
 
     $(".member_splash").click( function(event) {
@@ -325,8 +327,37 @@ Shopify.onCartUpdate = function(cart, form) {
             $createAccount.show();
         }
         $target.hide();
+        $(".errors").empty();
         $login.show();
     });
+
+    // initialize login validation (parsley)
+
+    $("#account_continue").click( function(event) {
+        var $form = $("form#customer_login");
+
+        if ($form.parsley('isValid')) {
+            return;
+        } else {
+            event.preventDefault();
+            $form.parsley('validate');
+        }
+    });
+
+    // Disabled - how to deliver a single message for all invalid fields?
+    // Should this even be?
+    /*$("#account_create").click( function(event) {
+        var $form = $("form#customer_login");
+
+        if ($form.parsley('isValid')) {
+            return;
+        } else {
+            event.preventDefault();
+            $form.parsley('validate');
+        }
+    });*/
+
+    
 
 })(jQ);
 
