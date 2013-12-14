@@ -290,19 +290,42 @@ Shopify.onCartUpdate = function(cart, form) {
         return false;
     });
 
-    $(".create_account_box").hover(function() {
-        $(".create_account_box").toggleClass('red_border');
-        $(".get_started_header").toggleClass('red_color');
+    $(".create_account_box").hover(function(event) {
+        var $target = $(event.currentTarget);
+
+        $target.toggleClass('red_border');
+        $target.children(".get_started_header").toggleClass('red_color');
     });
 
+
+    //Depending on whether the member or create account form is showing, displat appropriate screens.
     $(".create_account_box").click( function(event) {
-        var href = 'http://creative-fiction.myshopify.com/account/register';
-        window.location = href;
+        event.preventDefault();
+        var $target = $(event.currentTarget);
+            $login = $(".login_box");
+            $member = $(".member_splash");
+
+        if($login.is(':visible')) {
+            $login.hide();
+            $member.show();
+        }
+        $target.hide();
+        $(".create_account_container").show();
     });
 
     $(".member_splash").click( function(event) {
-        var href = 'http://creative-fiction.myshopify.com/account/login';
-        window.location = href;
+        event.preventDefault();
+        var $target = $(event.currentTarget),
+            $customer = $('.create_account_container'),
+            $createAccount =  $(".create_account_box"),
+            $login = $(".login_box");
+
+        if($customer.is(':visible')) {
+            $customer.hide();
+            $createAccount.show();
+        }
+        $target.hide();
+        $login.show();
     });
 
 })(jQ);

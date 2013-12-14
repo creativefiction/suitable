@@ -6,7 +6,11 @@
       <h2 class="customer_account_title signin_title">MY ACCOUNT</h2>
     </div>
 
-    <div class="login_box">
+    <div class="create_account_box member_splash">
+      <h3 class="account_login_header get_started_header">I'm a member</h3>
+    </div>
+
+    <div class="login_box hide">
       <h3 class="login_header">Log into your account</h3>
 
     {% form 'customer_login' %}
@@ -77,6 +81,55 @@
   <div class="create_account_box">
     <h3 class="account_login_header get_started_header">I want to get started</h3>
   </div>
+
+  <div id="create-customer" class="create_account_container hide">
+      <div class="template_header">
+        <h2 class="title create_header">Create Account</h2>
+      </div>
+
+      {% form 'create_customer' %}
+        {{ form.errors | default_errors }}
+
+        <div id="first_name" class="clearfix large_form">
+          <label for="first_name" class="login create_title">First name*</label>
+          <input type="text" value="" name="customer[first_name]" id="first_name" class="large create_input" size="30" />
+        </div>
+
+        <div id="last_name" class="clearfix large_form">
+          <label for="last_name" class="login create_title">Last name*</label>
+          <input type="text" value="" name="customer[last_name]" id="last_name" class="large create_input" size="30" />
+        </div>
+
+        <div id="email" class="clearfix large_form">
+          <label for="email" class="login create_title">Email address*</label>
+          <input type="email" value="" name="customer[email]" id="email" class="large create_input" size="30" />
+        </div>
+
+        <div id="password" class="clearfix large_form">
+          <label for="password" class="login create_title">Password*</label>
+          <input type="password" value="" name="customer[password]" id="password" class="large password create_input" size="30" />
+        </div>
+        <div id="password" class="clearfix large_form">
+          <label for="password" class="login create_title">Retype your password*</label>
+          <input type="password" value="" name="customer[password]" id="password" class="large password create_input" size="30" />
+        </div>
+        <div id="zipcode" class="clearfix large_form">
+          <label for="zipcode" class="login create_title">Password*</label>
+          <input type="text" value="" name="customer[zipcode]" id="zipcode" class="large password create_input" size="30" />
+        </div>
+
+        <span class="create_required_span">*Required fields</span>
+
+        <div class="action_bottom create_bottom">
+          <input class="btn create_account_submit" type="submit" value="Submit" />
+          <!-- <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span> -->
+        </div>
+      {% endform %}
+    </div><!-- /#create-customer -->
+
+
+
+
 
   </div> <!-- End customer div -->
 
