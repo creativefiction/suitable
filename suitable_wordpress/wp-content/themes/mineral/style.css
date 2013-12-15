@@ -1004,7 +1004,8 @@ img.aligncenter {
 #footer {
   height: auto;
   display: block;
-  background-color: #252525;
+  /*background-color: #252525;*/
+  background-color:white;
   color: #ececec;
   overflow: hidden;
   position: relative;
@@ -1014,11 +1015,18 @@ img.aligncenter {
   list-style: none;
 }
 .footer-widgets a {
-  color: #ececec;
+  /*color: #ececec;*/
+  color: black;
+
 }
 .footer-widgets a:hover {
   color: #26ae90;
 }
+
+.footer-widgets a:active {
+  color: black;
+}
+
 /*-------------- 3.5 Grid And Columns -------------------*/
 .cols-wrapper {
   overflow: hidden;
@@ -1680,7 +1688,8 @@ textarea.invalid {
 .footer-widgets {
   overflow: hidden;
   margin-top: 50px;
-  padding-bottom: 30px;
+  border-top: 2px solid rgb(201,198,194);
+  padding: 10px 0 0 0;
 }
 .footer-widgets .col {
   margin-bottom: 0;
@@ -1706,7 +1715,7 @@ textarea.invalid {
   margin-bottom: 10px;
   text-indent: 2px;
   padding-top: 11px;
-  color: #5d5d5d;
+  color: hsl(0, 0%, 10%);
   font-weight: bold;
   letter-spacing: 0px;
 }
@@ -1718,7 +1727,7 @@ textarea.invalid {
   height: auto;
   float: left;
   padding: 25px 0;
-  background-color: #141414;
+  /*background-color: #141414;*/
 }
 .footer-nav,
 .copyrights {
@@ -6057,14 +6066,37 @@ img.wp-post-image {
 
 #mc-embedded-subscribe {
   position: absolute;
-  left: 150px;
-  top: 2px;
+  left: 147px;
+  top: 3px;
   padding: 2px 4px;
   border-radius: 2px;
   font-family: Quicksand;
+  height:22px;
 }
 
 #mc-embedded-subscribe-form {
   position:relative;
 }
 
+.footer-widgets .widget_nav_menu li {
+  border-bottom: none;
+}
+
+
+/* Correcting descrepancy in change of style in active footer menu items*/
+.widget_nav_menu li.current-menu-item > a {
+  color: black !important;
+  padding-left: 0;
+}
+
+.widget_nav_menu li.current-menu-item > a:hover {
+  color: hsl(0, 46%, 46%) !important;
+  padding-left: 0;
+}
+
+.footer_icon {
+  width: 40px;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
