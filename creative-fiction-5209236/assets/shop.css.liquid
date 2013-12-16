@@ -3,7 +3,7 @@
 textarea, input[type=text], input[type=phone], input[type=password], input[type=email] {line-height:22px; color:#666;}
 input[type=text], input[type=phone], input[type=password], input[type=email] {height:22px;}
 
-body {color:{{ settings.text_color }}; font-size:13px; line-height:24px; font-family:'Quicksand', sans-serif; }
+body {color:{{ settings.text_color }}; font-size:12px; line-height:24px; font-family:'Vollkorn', serif; }
 
 {% if settings.use_custom_bg_image %}
 body {background:{{ settings.shop_bg_color }} url('{{ 'custom_bg.png' | asset_url }}') repeat fixed; }
@@ -11,7 +11,7 @@ body {background:{{ settings.shop_bg_color }} url('{{ 'custom_bg.png' | asset_ur
 body {background:{{ settings.shop_bg_color }} none repeat fixed; background-image:none;color:black; }
 {% endif %}
 
-h1,h2,h3,h4,h5,h6 {font-weight:{{ settings.header_weight }}; font-family:'Montserrat', sans-serif; color:{{ settings.header_color }}; margin:0 0 13px 0; text-transform:{{ settings.header_font_style }}; }
+h1,h2,h3,h4,h5,h6 {font-weight:{{ settings.header_weight }}; font-family:'Vollkorn', serif; color:{{ settings.header_color }}; margin:0 0 13px 0; text-transform:{{ settings.header_font_style }}; }
 
 /*{% if settings.typeface_method == "google_webfonts" %}
 
@@ -26,12 +26,12 @@ a:hover {text-decoration:none; color:{{ settings.link_hover_color }}; }
 a:active {outline:none;}
 
 h1 {font-size:48px;}
-h2 {font-size:32px;}
-h3 {font-size:24px;}
-h4 {font-size:20px;}
+h2 {font-size:28px;}
+h3 {font-size:22px;}
+h4 {font-size:16px;}
 h5 {font-size:16px;}
 
-table th {text-align:left; font-size:14px; font-family:'Montserrat', sans-serif; font-weight:400;}
+table th {text-align:left; font-size:14px; font-family:'Vollkorn', serif; font-weight:400;}
 table tr td {padding:10px 0; vertical-align:top;}
 table tr td:first-child {padding-left:0px;}
 table tr td:last-child {padding-right:0px;}
@@ -47,14 +47,14 @@ header h1 {margin:0;}
 header h1 a:hover {color:{{ settings.header_color }};}
 header div.logo {margin:0 auto;width:180px;margin-top: 30px;}
 header div.cart-summary {float:right; position:relative; text-align:right; font-size:{{ settings.nav_font_size }}; text-transform:{{ settings.nav_font_style }}; font-weight:{{ settings.nav_weight }}; color:{{ settings.nav_link_color }}; z-index:20000 !important;}
-header .contact-info {text-align:right; font-size:12px; position:absolute; top:5px; right:0; text-transform:lowercase; font-family:'Montserrat', sans-serif;}
+header .contact-info {text-align:right; font-size:12px; position:absolute; top:5px; right:0; text-transform:lowercase; font-family:'Vollkorn', serif;}
 header .social-icons { position: absolute; top: 10px; z-index: 2000; margin-left:10px;}
 header .contact-info span {margin-left:10px;}
-header div.cart-summary span.cart a {display:block; float:right; height:26px; margin-top:20px; padding-left:36px; background:url({{ 'cart-icon.png' | asset_url }}) repeat-y 0px 0px; font-size:13px; font-style:italic; text-transform:lowercase; font-family:'Montserrat', sans-serif;}
+header div.cart-summary span.cart a {display:block; float:right; height:26px; margin-top:20px; padding-left:36px; background:url({{ 'cart-icon.png' | asset_url }}) repeat-y 0px 0px; font-size:13px; font-style:italic; text-transform:lowercase; font-family:'Vollkorn', serif;}
 header .logo a, header .logo a img {display:block; margin:0; padding:0;}
 
 #cart-updated {position:absolute; top:100%; background:url('details-bg.png') no-repeat 50% 0; padding:10px 0 5px 0; z-index:15000 !important; text-align:center; color:#fff; font-size:12px; text-transform:none; line-height:16px; display:none;}
-#cart-updated a {color:#fff; font-family:'Montserrat', sans-serif; font-style:italic; text-transform:lowercase;}
+#cart-updated a {color:#fff; font-family:'Vollkorn', serif; font-style:italic; text-transform:lowercase;}
 nav.main {margin-bottom:20px;}
 
 nav li a {padding:5px 10px;text-align:center;width:166px; font-size:{{ settings.nav_font_size }}; text-transform:{{ settings.nav_font_style }}; font-weight:{{ settings.nav_weight }}; color:{{ settings.nav_link_color }}; }
@@ -99,9 +99,9 @@ tr.summary {border-bottom:none;}
 
 input.disabled {opacity:0.5;}
 
-.loading {padding:200px 0; font-size:11px; font-style:italic; font-family:'Montserrat', sans-serif; text-align:center;}
+.loading {padding:200px 0; font-size:11px; font-style:italic; font-family:'Vollkorn', serif; text-align:center;}
 
-.more-info {padding:0 0 5px 0; margin:0 0 16px 0; font-size:12px; line-height:18px; font-family:'Montserrat', sans-serif;}
+.more-info {padding:0 0 5px 0; margin:0 0 16px 0; font-size:12px; line-height:18px; font-family:'Vollkorn', serif;}
 .more-info .lower {display:block; color:#999; text-transform:lowercase; font-style:italic;}
 .more-info .upper {color:hsl(0, 0%, 36%); display:block; text-transform:uppercase; margin-bottom:-2px; font-family:Helvetica, Arial, sans-serif;}
 
@@ -111,11 +111,11 @@ nav li.dropdown > a {padding-right:20px; margin-right:5px; background:url('nav-d
 nav li.dropdown > a.current { background:{{ settings.selected_nav_link_bg_color }} url('nav-dropdown.png') no-repeat 93% 50%; color:{{ settings.selected_nav_link_color }};}
 nav li ul {z-index:10000 !important; position:absolute; text-align:center; min-width:100%; top:100%; display:none; opacity:0.0; background:url('details-bg.png') no-repeat 50% 0; padding-top:4px;}
 nav li ul li, nav li ul li a {display:block; margin:0; padding:0; float:none;}
-nav li ul li a {padding:3px 10px; font-style:italic; text-transform:lowercase; font-size:12px; line-height:18px; font-family:'Montserrat', sans-serif; color:#fff;}
+nav li ul li a {padding:3px 10px; font-style:italic; text-transform:lowercase; font-size:12px; line-height:18px; font-family:'Vollkorn', serif; color:#fff;}
 nav li ul li a.current {background:none !important; color:#fff !important;}
 nav li ul li a:hover {color:hsl(0, 46%, 46%);}
 
-footer {padding:40px 0 50px 0;text-align: center;margin:0 auto;width:960px;}
+footer {padding:40px 0 50px 0;text-align: center;margin:0 auto;width:960px;border-top: 2px solid rgb(201,198,194);}
 footer .more-info {margin-bottom:5px;}
 footer .search {float:right;}
 footer li {margin:0;}
@@ -127,8 +127,9 @@ footer.has_methods_of_payment nav.horizontal { float:left !important; }
 footer nav.horizontal .more-info { display: none; }
 footer nav.horizontal li { display: inline; padding: 0 10px; }
 footer nav.horizontal li a { display: inline; }
-footer nav li {float:none; display:block; font-size:12px; line-height:22px; font-family:'Montserrat', sans-serif;border-bottom: 1px solid hsl(0, 0%, 20%);padding: 10px 0;}
-footer nav li a {float:none; display:block; padding:0; margin:0; font-size:12px;}
+footer nav li {float:none; display:block; font-size:12px; line-height:22px; font-family:'Vollkorn', serif;padding: 10px 0;}
+footer nav li a {float:none; display:block; padding:0; margin:0; font-size:12px; color:black;}
+footer nav li a:hover { color:hsl(0, 46%, 46%);}
 footer nav li a.current {background:none !important;}
 footer #footer-payment-methods {float:right;}
 
@@ -148,10 +149,10 @@ footer #footer-payment-methods {float:right;}
 #content-slide .product {float:left; opacity:1.0; position:relative; margin-right:3px;}
 #content-slide .product:last-child, #content-slide .product.last {margin-right:0px;}
 #content-slide .product .details {background:url('details-bg.png') no-repeat 50% 0; padding:0; position:absolute; width:70%; left:15%; top:70%; opacity:0.0;}
-#content-slide .product .details .title {text-align:center; padding:13px 10px 10px 10px; display:block; color:#fff; font-size:12px; line-height:18px; font-family:'Montserrat', sans-serif; font-style:italic;}
+#content-slide .product .details .title {text-align:center; padding:13px 10px 10px 10px; display:block; color:#fff; font-size:12px; line-height:18px; font-family:'Vollkorn', serif; font-style:italic;}
 #content-slide .product.small, #content-slide .product.small .image, #content-slide .product.small .image img {max-width:220px;} /* make IE play nice */
 
-#content-slide .product .details .extras {text-align:center; display:none; font-size:10px; font-family:"Quicksand", sans-serif; font-style:italic; color:#aaa; background:#000; padding:0; background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(0,0,0)),color-stop(1, rgb(32,32,32))); background-image: -moz-linear-gradient(center bottom,rgb(0,0,0) 0%,rgb(32,32,32) 100%);}
+#content-slide .product .details .extras {text-align:center; display:none; font-size:10px; font-family:'Vollkorn', serif; font-style:italic; color:#aaa; background:#000; padding:0; background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(0,0,0)),color-stop(1, rgb(32,32,32))); background-image: -moz-linear-gradient(center bottom,rgb(0,0,0) 0%,rgb(32,32,32) 100%);}
 #content-slide .product.current .details .extras {display:block; border-top:1px solid #2c2c2c;}
 #content-slide .product.current .details .extras span:hover {color:#fff;}
 #content-slide .product.current .details .extras .description {float:left; display:block; padding-left:10px;}
@@ -165,7 +166,7 @@ footer #footer-payment-methods {float:right;}
 #content-table .product.last {margin-right:0;}
 #content-table .product .image {width:220px; text-align:center;}
 #content-table .product .image, #content-table .product .image img {max-width:220px; margin:0 auto;}
-#content-table .product .details {background:url('details-bg.png') no-repeat 50% 0; position:absolute; opacity:0.0; padding:0; position:absolute; width:70%; top:70%; left:15%; font-family:'Montserrat', sans-serif; font-style:italic;}
+#content-table .product .details {background:url('details-bg.png') no-repeat 50% 0; position:absolute; opacity:0.0; padding:0; position:absolute; width:70%; top:70%; left:15%; font-family:'Vollkorn', serif; font-style:italic;}
 #content-table .product .details a {padding:13px 8px;}
 #content-table .product .details span {line-height:18px; padding:0 10px;}
 #content-table .product .title {text-align:center; display:block; color:#fff; font-weight:400; font-size:12px; line-height:18px;}
@@ -195,7 +196,7 @@ footer #footer-payment-methods {float:right;}
 #product .images .thumbs .image a {display:block;}
 #product .images .thumbs .image img {max-width:55.25px; margin:0 auto;}
 #product .product_body {margin-bottom:35px;}
-#product .details {padding:13px 0; font-size:12px; font-family:'Montserrat', sans-serif; font-style:italic; text-transform:lowercase;}
+#product .details {padding:13px 0; font-size:12px; font-family:'Vollkorn', serif; font-style:italic; text-transform:lowercase;}
 #product .variants span.price {display:block; font-size:15px; padding:13px 0;}
 #product .variants label {display:block; font-size:12px;display:inline;font-weight:600;}
 #product .variants select {display:block;}
@@ -209,7 +210,7 @@ footer #footer-payment-methods {float:right;}
 /* collection */
 #collection .details, #collection .description {padding-bottom:20px;}
 #collection .controls {padding-bottom:20px;}
-#collection .tags li {display:block; float:left; font-family:'Montserrat', sans-serif; font-size:12px; font-style:italic; padding:5px 15px 5px 0; text-transform:lowercase;}
+#collection .tags li {display:block; float:left; font-family:'Vollkorn', serif; font-size:12px; font-style:italic; padding:5px 15px 5px 0; text-transform:lowercase;}
 #collection .tags li.active a {color:#000;}
 
 /* cart */
@@ -357,7 +358,7 @@ text-decoration: none;
 
 .open_close_arrow {
 	float:right;
-	font-family:'Quicksand', sans-serif;
+	font-family:'Vollkorn', serif;
 }
 
 .close_rotate {
@@ -431,6 +432,7 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 	width: 32px;
 	text-align:center;
 	font-style:italic;
+	font-family:'Vollkorn', serif;
 }
 
 .step1 p, .step2 p, .step3 p {
@@ -459,7 +461,7 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 }
 
 .footer_container {
-	background:black;
+	background:white;
 	width:100%;
 	position: absolute;
 	left: 0;
@@ -475,7 +477,7 @@ input[type=text].measurement_input { /* had to add additional selectors due to s
 
 .account_nav li a {
 	font-size:16px;
-	font-family: 'Montserrat', sans-serif;
+	font-family:'Vollkorn', serif;
 }
 
 .account_content_container {
@@ -659,7 +661,7 @@ input.popup_button:hover {
 	text-align: left;
 	font-style: normal;
 	padding-bottom: 7px;
-	font-family: 'Quicksand', sans-serif;
+	font-family:'Vollkorn', serif;
 	font-size: 16px;
 }
 

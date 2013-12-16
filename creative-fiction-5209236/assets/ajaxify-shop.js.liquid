@@ -220,12 +220,17 @@ Shopify.onCartUpdate = function(cart, form) {
     $(document).click(function() {
         $('#add_popup').hide();
     });
-    
+
+  //validation for measurements
   $('#add_button').click(function(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    if ($('.measurement_input').val() === '') {
+    var empty = $(".measurement_input").filter(function() {
+        return this.value === "";
+    });
+
+    if (empty.length) {
         $('.error_text').show();
 
         $(".measurement_input").on('focus', function(event) {
